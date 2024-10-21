@@ -19,7 +19,7 @@ function displayRamens () {
    .then(ramens => {
      ramens.forEach(ramen => {
       const img = document.createElement('img');
-      img.src = ramen.imageUrl;
+      img.src = ramen.image;
       img.alt = ramen.name;
       img.addEventListener('click', () => handleClick(ramen));
       ramenMenu.appendChild(img);
@@ -40,7 +40,7 @@ function handleClick(ramen) {
   const ratingDisplay = document.getElementById('rating-display');
   const commentDisplay = document.getElementById('comment-display');
 
-  detailImage.src = ramen.imageUrl;
+  detailImage.src = ramen.image;
   detailImage.alt = ramen.name;
   nameElement.textContent = ramen.name;
   restaurantElement.textContent = ramen.restaurant;
