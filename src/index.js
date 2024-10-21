@@ -55,14 +55,14 @@ function addSubmitListener(){
   
     const newName = document.getElementById('new-name').value;
         const newRestaurant = document.getElementById('new-restaurant').value;
-        const newImageUrl = document.getElementById('new-image').value;
+        const newImage = document.getElementById('new-image').value;
         const newRating = document.getElementById('new-rating').value;
         const newComment = document.getElementById('new-comment').value;
 
         const newRamen = {
           name: newName,
           restaurant: newRestaurant,
-          imageUrl: newImageUrl,
+          image: newImage,
           rating: newRating,
           comment: newComment
     };
@@ -80,7 +80,7 @@ function addRamenToMenu(ramen) {
   const ramenMenu = document.getElementById('ramen-menu');
   
   const img = document.createElement('img');
-  img.src = ramen.imageUrl; 
+  img.src = ramen.image; 
   img.alt = ramen.name; 
   img.addEventListener('click', () => handleClick(ramen)); 
   
