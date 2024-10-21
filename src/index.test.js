@@ -3,7 +3,8 @@ import { Window } from 'happy-dom'
 import fs from 'fs'
 import path from 'path'
 import { fireEvent } from '@testing-library/dom'
-
+import { addSubmitListener, displayRamens, handleClick, main } from './index';
+import { main } from './index.js';
 //! Set the data
 
 const testResponseData = [
@@ -144,6 +145,8 @@ describe('handleClick', () => {
     });
 
 })
+
+
 
 describe('handleSubmit', () => {
     it('should add a new slider image when the submit button is clicked', async () => {
