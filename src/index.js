@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', main());
-
+document.addEventListener('DOMContentLoaded', main);
+ 
 
 function main() {
   displayRamens();
@@ -34,52 +34,37 @@ function displayRamens () {
 
 function handleClick(ramen) {
   const ramenDetail = document.getElementById('ramen-detail');
-  ramenDetail.innerHTML = '';
+  const detailImage = ramenDetail.querySelector('.detail-image');
+  const nameElement = ramenDetail.querySelector('.name');
+  const restaurantElement = ramenDetail.querySelector('.restaurant');
+  const ratingDisplay = document.getElementById('rating-display');
+  const commentDisplay = document.getElementById('comment-display');
 
-  const name = document.createElement('h2');
-  name.textContent = ramen.name;
-
-  const img = document.createElement('img');
-  img.src = ramen.imageUrl;
-  img.alt = ramen.name;
-
-  const description = document.createElement('p');
-  description.textContent = ramen.description;
-
-  const rating = document.createElement('p');
-  rating.textContent = `Rating: ${ramen.rating}`;
-
-  const comment = document.createElement('p');
-  comment.textContent = `comment ${ramen.comment}`;
-
-
-  ramenDetail.appendChild(name);
-  ramenDetail.appendChild(img);
-  ramenDetail.appendChild(description);
-  ramenDetail.appendChild(rating);
-  ramenDetail.appendChild(comment);
-
+  detailImage.src = ramen.imageUrl;
+  detailImage.alt = ramen.name;
+  nameElement.textContent = ramen.name;
+  restaurantElement.textContent = ramen.restaurant;
+  ratingDisplay.textContent = ramen.rating;
+  commentDisplay.textContent = ramen.comment;
 }
 
 function addSubmitListener(){
   const form = document.getElementById('new-ramen');
   form.addEventListener('submit',(event) => {
     event.preventDefault();
+  
+    const newName = document.getElementById('new-name').value;
+        const newRestaurant = document.getElementById('new-restaurant').value;
+        const newImageUrl = document.getElementById('new-image').value;
+        const newRating = document.getElementById('new-rating').value;
+        const newComment = document.getElementById('new-comment').value;
 
-    const  ramenName = form.querySelector('input[name="name"]').value;
-    const  ramenImageUrl = form.querySelector('input[name="imageUrl"]').value;
-    const  ramenDescrition = form.querySelector('input[name="description"]').value;
-    const  ramenRating = form.querySelector('input[name="rating"]').value;
-    const  ramenComment = form.querySelector('input[name="comment"]').value;
-
-
-    const newRamen = {
-      name:ramenName,
-      imageUrl:ramenImageUrl,
-      description:ramenDescrition,
-      rating:ramenRating,
-      comment:ramenComment,
-
+        const newRamen = {
+          name: newName,
+          restaurant: newRestaurant,
+          imageUrl: newImageUrl,
+          rating: newRating,
+          comment: newComment
     };
 
     addRamenToMenu(newRamen);
